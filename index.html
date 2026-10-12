@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gigi Data Hub (Prototype)</title>
+<meta name="description" content="Affordable Gigi data bundles in Ghana. Prototype.">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--b:#0b5ed7;--bd:#083f94;--g:#16a34a;--bg:#f4f8ff;--c:#fff;--t:#10213a;--m:#5b6b82;--l:#dbe5f5}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1626;--c:#142138;--t:#e8eefb;--m:#9db0cf;--l:#273a5c}}
+:root[data-theme="dark"]{--bg:#0d1626;--c:#142138;--t:#e8eefb;--m:#9db0cf;--l:#273a5c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:16px/1.5 system-ui,sans-serif}
+#proto{background:#f59e0b;color:#222;text-align:center;font-size:.8rem;padding:6px 10px;font-weight:600}
+header{background:var(--c);border-bottom:1px solid var(--l);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.logo{font-weight:800;font-size:1.2rem;color:var(--b);padding:10px 14px 4px}.logo span{color:var(--g)}
+nav{display:flex;overflow-x:auto;gap:4px;padding:0 10px 8px}nav button{flex:none;border:0;background:none;color:var(--t);padding:8px 12px;border-radius:99px;font-size:.9rem}nav button.on{background:var(--b);color:#fff}
+.w{max-width:760px;margin:auto;padding:16px}.v{display:none}.v.on{display:block}
+.hero{background:linear-gradient(135deg,var(--bd),var(--b) 60%,var(--g));color:#fff;text-align:center;padding:44px 18px;border-radius:0 0 24px 24px}
+.hero h1{margin:0 0 8px;font-size:1.7rem;line-height:1.2}.hero p{margin:0 0 18px;opacity:.92}
+.btn{border:0;background:var(--g);color:#fff;padding:13px 22px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-block;transition:transform .15s}.btn:active{transform:scale(.97)}
+.btn.o{background:none;color:var(--b);border:2px solid var(--b)}.btn.r{background:#dc2626}.btn.s{padding:7px 12px;font-size:.85rem}.btn.f{width:100%}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--c);border:2px solid var(--l);border-radius:16px;padding:14px;animation:up .35s}.card.sel{border-color:var(--g)}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+.big{font-size:1.7rem;font-weight:800;color:var(--b)}.price{font-weight:800;color:var(--g);font-size:1.15rem}.m{color:var(--m);font-size:.85rem}
+.tag{font-size:.7rem;padding:2px 8px;border-radius:99px;background:#fde68a;color:#78350f;font-weight:700}.tag.ok{background:#bbf7d0;color:#14532d}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--l);border-radius:10px;background:var(--c);color:var(--t);font-size:1rem;margin:4px 0 10px}
+label{font-weight:600;font-size:.9rem}.err{color:#dc2626;font-size:.9rem;min-height:1.2em}
+.box{background:var(--c);border:1px solid var(--l);border-radius:14px;padding:14px;margin:10px 0}
+.steps{display:grid;gap:10px}.steps div{display:flex;gap:12px;align-items:center}.n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--b);color:#fff;display:grid;place-items:center;font-weight:800}
+details{background:var(--c);border:1px solid var(--l);border-radius:12px;padding:10px 14px;margin:8px 0}summary{font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{margin:0}.ar{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:#10213a;color:#fff;padding:10px 18px;border-radius:12px;display:none;z-index:9}
+footer{text-align:center;color:var(--m);font-size:.8rem;padding:20px 14px}
+h2{margin:8px 0}
+</style></head><body>
+<div id="proto">PROTOTYPE with DEMO data. No real payments or data delivery.</div>
+<header><div class="logo">📶 Gigi <span>Data Hub</span></div><nav id="nav"></nav></header>
+<main>
+<section id="home" class="v on"><div class="hero"><h1>Affordable Data Bundles, Anytime, Anywhere!</h1><p>Get your Gigi data bundles quickly and conveniently at affordable prices.</p><button class="btn" onclick="go('shop')">Buy Data Now</button></div>
+<div class="w"><h2>Popular bundles</h2><div class="grid" id="feat"></div>
+<h2>3 easy steps</h2><div class="steps"><div><span class="n">1</span>Choose a bundle</div><div><span class="n">2</span>Enter the phone number</div><div><span class="n">3</span>Pay with Mobile Money</div></div>
+<h2>Questions</h2><details><summary>Is payment working?</summary><p>Not yet. This is a prototype. Payment and delivery will only be switched on after they are connected and tested.</p></details><details><summary>How will I get my data?</summary><p>After payment, orders show "Awaiting fulfillment" until delivery is confirmed.</p></details><details><summary>Need help?</summary><p>Use the WhatsApp button on the Help tab.</p></details></div></section>
+
+<section id="shop" class="v"><div class="w"><h2>Buy Data</h2><p class="m">Tap a bundle to select it.</p><div class="grid" id="bl"></div>
+<form id="sf" class="box" onsubmit="toCheckout(event)" hidden><b id="sb"></b><br><br><label>Recipient phone number<input id="ph" inputmode="tel" placeholder="024 123 4567" autocomplete="tel"></label><div class="err" id="pe"></div><button class="btn f">Continue to checkout</button></form></div></section>
+
+<section id="checkout" class="v"><div class="w"><h2>Checkout</h2><div class="box"><b>Review your order</b><div id="rv"></div></div>
+<div class="box"><label>Mobile Money network<select id="net"><option>MTN MoMo</option><option>Telecel Cash</option><option>AirtelTigo Money</option></select></label>
+<p class="m">DEMO ONLY: no money is taken and no PIN is asked. Real payments will use a secure gateway like Paystack, never your PIN on this site.</p></div>
+<button class="btn f" onclick="placeOrder()">Place demo order</button><p><button class="btn o f" onclick="go('shop')">Back</button></p></div></section>
+
+<section id="confirm" class="v"><div class="w"><h2>Order received (demo)</h2><div class="box" id="cf"></div><button class="btn f" onclick="go('home')">Back to home</button></div></section>
+
+<section id="ussd" class="v"><div class="w"><h2>USSD Codes</h2><p class="m">Codes marked Unverified are placeholders, not official Gigi codes.</p><div id="ul"></div></div></section>
+
+<section id="help" class="v"><div class="w"><h2>Help and Tracking</h2>
+<div class="box"><b>WhatsApp support</b><p class="m">Set your WhatsApp number in Admin.</p><a class="btn" id="wa" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
+<div class="box"><b>Track an order</b><input id="tr" placeholder="Order reference"><input id="tp" inputmode="tel" placeholder="Phone number"><button class="btn f" onclick="track()">Track</button><div id="tres" style="margin-top:10px"></div></div></div></section>
+
+<section id="admin" class="v"><div class="w"><h2>Admin (demo)</h2>
+<div id="al" class="box"><label>Demo PIN<input id="pin" type="password" inputmode="numeric" placeholder="1234"></label><button class="btn f" onclick="login()">Open admin</button><p class="m">Prototype PIN is 1234. It is NOT secure. The real version needs proper login. Changes here are saved only in this browser.</p></div>
+<div id="ap" hidden><div class="row" id="at"></div><div id="ac"></div></div></div></section>
+</main>
+<footer>© Gigi Data Hub · Prototype · Terms, Privacy and Refund policy to be added before launch</footer>
+<div id="toast"></div>
+<script>
+const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const D={bundles:[{id:1,size:'1 GB',price:5,validity:'7 days'},{id:2,size:'2 GB',price:10,validity:'14 days'},{id:3,size:'5 GB',price:20,validity:'30 days'},{id:4,size:'10 GB',price:40,validity:'30 days'}],
+ussd:[{id:1,service:'Check balance (PLACEHOLDER)',code:'*000#',desc:'Placeholder only. Replace with a verified Gigi code.',ok:false},{id:2,service:'Buy bundle (PLACEHOLDER)',code:'*000*1#',desc:'Placeholder only. Replace with a verified Gigi code.',ok:false}],orders:[],wa:'233000000000',seq:10};
+try{Object.assign(D,JSON.parse(localStorage.getItem('gdh')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('gdh',JSON.stringify(D))}catch(e){}};
+const V=[['home','Home'],['shop','Buy Data'],['ussd','USSD Codes'],['help','Help'],['admin','Admin']];let sel=null,cur=null,tab='b';
+$('nav').innerHTML=V.map(v=>`<button data-v="${v[0]}" onclick="go('${v[0]}')">${v[1]}</button>`).join('');
+function go(v){document.querySelectorAll('.v').forEach(e=>e.classList.toggle('on',e.id===v));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));scrollTo(0,0);if(v==='help')$('wa').href='https://wa.me/'+D.wa+'?text='+encodeURIComponent('Hello Gigi Data Hub')}
+function toast(t){const e=$('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2200)}
+const card=b=>`<div class="card ${sel===b.id?'sel':''}"><div class="big">${esc(b.size)}</div><div class="price">GH₵${(+b.price).toFixed(2)}</div><div class="m">${esc(b.validity)} · Gigi <span class="tag">Demo</span></div><button class="btn s f" style="margin-top:8px" onclick="pick(${b.id})">Select</button></div>`;
+function draw(){$('bl').innerHTML=D.bundles.map(card).join('');$('feat').innerHTML=D.bundles.slice(0,2).map(card).join('');
+ $('ul').innerHTML=D.ussd.map(u=>`<div class="box"><b>${esc(u.service)}</b> ${u.ok?'<span class="tag ok">Verified</span>':'<span class="tag">Unverified</span>'}<div class="big">${esc(u.code)}</div><p class="m">${esc(u.desc)}</p><div class="row"><button class="btn s o" onclick="cp(${u.id})">Copy</button><a class="btn s" href="tel:${encodeURIComponent(u.code)}">Dial</a></div></div>`).join('')||'<p>No codes yet.</p>'}
+function cp(id){const u=D.ussd.find(x=>x.id===id);(navigator.clipboard?navigator.clipboard.writeText(u.code):Promise.reject()).then(()=>toast('Copied '+u.code),()=>toast('Copy failed. Long-press the code.'))}
+function pick(id){sel=id;const b=D.bundles.find(x=>x.id===id);go('shop');draw();$('sf').hidden=false;$('sb').textContent=`${b.size} · GH₵${(+b.price).toFixed(2)} · ${b.validity}`;$('ph').focus()}
+function phone(p){p=String(p).replace(/[\s-]/g,'').replace(/^\+?233/,'0');return /^0\d{9}$/.test(p)?p:null}
+function toCheckout(e){e.preventDefault();const p=phone($('ph').value);if(!p){$('pe').textContent='Enter a valid Ghana number, e.g. 0241234567';return}$('pe').textContent='';cur=p;const b=D.bundles.find(x=>x.id===sel);
+ $('rv').innerHTML=`<p>${esc(b.size)} · ${esc(b.validity)}<br>Recipient: <b>${esc(p)}</b><br>Total: <span class="price">GH₵${(+b.price).toFixed(2)}</span></p>`;go('checkout')}
+function placeOrder(){const b=D.bundles.find(x=>x.id===sel);const ref='DEMO'+(++D.seq)+Math.random().toString(36).slice(2,5).toUpperCase();
+ D.orders.unshift({ref,phone:cur,bundle:b.size+' ('+b.validity+')',amount:b.price,net:$('net').value,pay:'Demo (no payment taken)',ful:'Awaiting fulfillment',time:new Date().toLocaleString()});save();
+ $('cf').innerHTML=`<p>Reference: <b>${ref}</b></p><p>${esc(b.size)} for <b>${esc(cur)}</b> · GH₵${(+b.price).toFixed(2)}</p><p>Payment: <span class="tag">Demo, nothing charged</span><br>Delivery: <span class="tag">Awaiting fulfillment</span></p><p class="m">This is a prototype. No payment was made and no data will be delivered.</p>`;go('confirm')}
+function track(){const o=D.orders.find(x=>x.ref===$('tr').value.trim().toUpperCase()&&x.phone===phone($('tp').value));$('tres').innerHTML=o?`<div class="box"><b>${o.ref}</b><br>${esc(o.bundle)}<br>Payment: ${esc(o.pay)}<br>Delivery: ${esc(o.ful)}</div>`:'<span class="err">No order found.</span>'}
+// admin
+function login(){if($('pin').value==='1234'){$('al').hidden=true;$('ap').hidden=false;adm()}else toast('Wrong PIN')}
+function adm(){$('at').innerHTML=[['b','Bundles'],['u','USSD'],['o','Orders'],['s','Settings']].map(t=>`<button class="btn s ${tab===t[0]?'':'o'}" onclick="tab='${t[0]}';adm()">${t[1]}</button>`).join('');let h='';
+ if(tab==='b')h=D.bundles.map((b,i)=>`<div class="box"><div class="ar"><input value="${esc(b.size)}" onchange="D.bundles[${i}].size=this.value;save()" aria-label="Size"><input type="number" step="0.5" value="${b.price}" onchange="D.bundles[${i}].price=+this.value;save()" aria-label="Price"></div><input value="${esc(b.validity)}" onchange="D.bundles[${i}].validity=this.value;save()" aria-label="Validity"><button class="btn s r" onclick="D.bundles.splice(${i},1);save();adm();draw()">Delete</button></div>`).join('')+`<button class="btn f" onclick="D.bundles.push({id:++D.seq,size:'New GB',price:1,validity:'7 days'});save();adm();draw()">+ Add bundle</button>`;
+ if(tab==='u')h=D.ussd.map((u,i)=>`<div class="box"><input value="${esc(u.service)}" onchange="D.ussd[${i}].service=this.value;save()"><input value="${esc(u.code)}" onchange="D.ussd[${i}].code=this.value;save()"><input value="${esc(u.desc)}" onchange="D.ussd[${i}].desc=this.value;save()"><label><input type="checkbox" style="width:auto" ${u.ok?'checked':''} onchange="D.ussd[${i}].ok=this.checked;save()"> Verified official code</label><br><button class="btn s r" onclick="D.ussd.splice(${i},1);save();adm();draw()">Delete</button></div>`).join('')+`<button class="btn f" onclick="D.ussd.push({id:++D.seq,service:'New service',code:'*000#',desc:'',ok:false});save();adm();draw()">+ Add code</button>`;
+ if(tab==='o')h=D.orders.map((o,i)=>`<div class="box"><b>${o.ref}</b> · ${esc(o.phone)}<br>${esc(o.bundle)} · GH₵${o.amount}<br><span class="m">${esc(o.pay)} · ${esc(o.ful)}</span><br><button class="btn s o" onclick="D.orders[${i}].ful='Delivered (manual)';save();adm()">Mark delivered</button></div>`).join('')||'<p class="m">No orders yet.</p>';
+ if(tab==='s')h=`<div class="box"><label>WhatsApp number (233XXXXXXXXX, no + or spaces)<input value="${esc(D.wa)}" onchange="D.wa=this.value.replace(/\\D/g,'');save();toast('Saved')"></label></div>`;
+ $('ac').innerHTML=h}
+draw();go('home');
+</script></body></html>
